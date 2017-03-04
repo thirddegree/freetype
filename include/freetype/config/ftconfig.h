@@ -380,9 +380,17 @@ FT_BEGIN_HEADER
 #ifndef FT_BASE
 
 #ifdef __cplusplus
-#define FT_BASE( x )  extern "C"  x
+    #ifdef _WIN32
+    #define FT_BASE( x ) __declspec(dllexport) x
+    #else
+    #define FT_BASE( x )  extern "C"  x
+    #endif
 #else
-#define FT_BASE( x )  extern  x
+    #ifdef _WIN32
+    #define FT_BASE( x ) __declspec(dllexport) x
+    #else
+    #define FT_BASE( x )  extern  x
+    #endif
 #endif
 
 #endif /* !FT_BASE */
@@ -402,9 +410,17 @@ FT_BEGIN_HEADER
 #ifndef FT_EXPORT
 
 #ifdef __cplusplus
-#define FT_EXPORT( x )  extern "C"  x
+    #ifdef _WIN32
+    #define FT_EXPORT( x ) __declspec(dllexport) x
+    #else
+    #define FT_EXPORT( x )  extern "C"  x
+    #endif
 #else
-#define FT_EXPORT( x )  extern  x
+    #ifdef _WIN32
+    #define FT_EXPORT( x ) __declspec(dllexport) x
+    #else
+    #define FT_EXPORT( x )  extern  x
+    #endif
 #endif
 
 #endif /* !FT_EXPORT */
@@ -413,9 +429,17 @@ FT_BEGIN_HEADER
 #ifndef FT_EXPORT_DEF
 
 #ifdef __cplusplus
-#define FT_EXPORT_DEF( x )  extern "C"  x
+    #ifdef _WIN32
+    #define FT_EXPORT_DEF( x ) __declspec(dllexport) x
+    #else
+    #define FT_EXPORT_DEF( x )  extern "C"  x
+    #endif
 #else
-#define FT_EXPORT_DEF( x )  extern  x
+    #ifdef _WIN32
+    #define FT_EXPORT_DEF( x ) __declspec(dllexport) x
+    #else
+    #define FT_EXPORT_DEF( x )  extern  x
+    #endif
 #endif
 
 #endif /* !FT_EXPORT_DEF */
